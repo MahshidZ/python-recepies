@@ -19,7 +19,6 @@ while not user_word_count in range(1, len(words) + 1):
   user_word_count = int(raw_input("> "))
 
 result = random.sample(words, user_word_count)
-print result
 random.shuffle(result)
 
 print "Your list of words are: ", result
