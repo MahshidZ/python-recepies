@@ -155,6 +155,34 @@ class BST(object):
           return walking_node
   
  
+  def find_smallest_node(self):
+    if self.root == None:
+      return
+    walking_node = self.root
+    smallest_node = self.root
+    while walking_node != None:
+      if walking_node.data <= smallest_node.data:
+        smallest_node = walking_node
+      if walking_node.left_child != None:
+        walking_node = walking_node.left_child
+      elif walking_node.left_child == None:
+        walking_node = None
+    return smallest_node
+
+
+  def find_k_smallest(self, k):
+    k_smallest_node = self.find_smallest_node()
+    if k_smallest_node == None:
+      return 
+    else:
+      k_smallest_data = k_smallest_node.data
+    count = 0
+    while count < k:
+      k_smallest_data = self.get_next(k_smallest_data)
+      count += 1
+    return k_smallest_data
+ 
+
 class Node(object):
 
   def __init__(self, data):
