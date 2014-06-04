@@ -1,10 +1,5 @@
 '''
-<<<<<<< HEAD:src/basic_bst.py
-A Binary Search Tree class 
-=======
 A Binary Search Tree class.
-
->>>>>>> 92da8227f8fef23c62f19d1103ed07872cc8a195:src/bst.py
 ''' 
 
 class BST(object):
