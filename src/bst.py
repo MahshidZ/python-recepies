@@ -1,6 +1,5 @@
 '''
-A Binary Search Tree class that has three different methods for 
-returning nodes in a given range inclusive. 
+A Binary Search Tree class.
 
 ''' 
 
@@ -77,8 +76,8 @@ class BST(object):
       lst.append(found_data)
       found_data = self.get_next(found_data)  
     
-  def get_next(self, a):
-    a_node = self.find(a)
+  def get_next(self, key):
+    a_node = self.find(key)
     if a_node == -1:
       return -1 
     if a_node.right_child != None:
