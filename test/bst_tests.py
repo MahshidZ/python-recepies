@@ -1,5 +1,5 @@
 from nose.tools import *
-from bst import *
+from basic_bst import *
 
 def test_insert():
   my_bst = BST()
@@ -19,33 +19,6 @@ def test_find():
   my_node = my_bst.find(5)
   assert_equal(my_node.data,5)
   assert_equal(my_node.left_child.data, 4)
-
-def test_range_count():
-  my_bst_range_count = BST()
-  my_bst_range_count.insert(3)
-  my_bst_range_count.insert(5)  
-  my_bst_range_count.insert(4)
-  my_bst_range_count.insert(2) 
-  count = my_bst_range_count.count_range(2, 4)
-  assert_equal(count, 3)
-
-def test_print_range():
-  my_range_bst = BST()
-  my_range_bst.insert(20)
-  my_range_bst.insert(14)  
-  my_range_bst.insert(18)
-  my_range_bst.insert(15)
-  my_range_bst.insert(19) 
-  my_range_bst.insert(17) 
-  my_range_bst.insert(16) 
-  my_range_bst.insert(23) 
-  my_range_bst.insert(26) 
-  my_range_bst.insert(22) 
-  my_range_bst.insert(21) 
-  my_range_bst.insert(30) 
-  my_range_bst.insert(24) 
-  my_range_bst.insert(25)
-  my_range_bst.print_range(13, 23)
 
 def test_get_next():
   my_bst = BST()
@@ -104,7 +77,7 @@ def test_find_k_smallest():
   my_bst.insert(24) 
   my_bst.insert(25)  
   smallest_3rd = my_bst.find_k_smallest(3)
-  assert_equal(smallest_3rd, 17)
-  #9th_smallest = my_bst.find_k_smallest(9)
-  #assert_equal(9th_smallest, 21)
+  assert_equal(smallest_3rd, 16)
+  smallest_9th = my_bst.find_k_smallest(9)
+  assert_equal(smallest_9th, 22)
 
