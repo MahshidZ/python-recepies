@@ -1,4 +1,3 @@
-
 '''
 A Binary Search Tree class that has three different methods for 
 returning nodes in a given range inclusive. 
@@ -169,13 +168,5 @@ class Node(object):
 
   def set_left_child(self, leftnode):
     self.left_child = leftnode
-
-
-
-
-
-
-
-
 
 
