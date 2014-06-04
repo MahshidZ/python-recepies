@@ -1,5 +1,10 @@
 '''
+<<<<<<< HEAD:src/basic_bst.py
 A Binary Search Tree class 
+=======
+A Binary Search Tree class.
+
+>>>>>>> 92da8227f8fef23c62f19d1103ed07872cc8a195:src/bst.py
 ''' 
 
 class BST(object):
@@ -26,9 +31,62 @@ class BST(object):
     self.print_in_order(node.left_child) 
     print node.data,
     self.print_in_order(node.right_child)
+<<<<<<< HEAD:src/basic_bst.py
        
   def get_next(self, a):
     a_node = self.find(a)
+=======
+    
+  def nodes_in_range1(self, a, b, node, lst):
+    '''
+    This method uses in_order recursion and when it found a node
+    in the range, it prints it! O(n)
+    '''
+    if node == None: 
+      return
+    self.nodes_in_range1(a, b, node.left_child, lst)
+    if node.data >= a and node.data <= b:
+      lst.append(node.data)
+    self.nodes_in_range1(a, b, node.right_child, lst)
+  
+
+  def nodes_in_range2(self, a, b, root, lst):
+    '''
+    This method compares the value of the node to the range and
+    does not go down to some subtrees as a result. O(k)
+    '''
+    if root == None:
+      return
+    if root.left_child != None:
+      if a <= root.data:
+        self.nodes_in_range2(a, b, root.left_child, lst)
+    if a<= root.data <= b:
+      lst.append(root.data)
+    if root.right_child != None:
+      if root.data <= b:
+        self.nodes_in_range2(a, b, root.right_child, lst) 
+   
+
+  def nodes_in_range3(self, a, b, root, lst):
+    '''
+    This method first finds a node <= a then call get next until reach to
+    b. O(log(n) + k)
+    '''
+    if root == None:
+      return
+    found = self.closest_node(a)
+    found_data = -1
+    if found.data < a and found != None:
+      found_data = self.get_next(found.data)
+    elif a <= found.data <= b and found != None:
+      found_data = found.data
+    while a <= found_data <= b:
+      lst.append(found_data)
+      found_data = self.get_next(found_data)  
+    
+  def get_next(self, key):
+    a_node = self.find(key)
+>>>>>>> 92da8227f8fef23c62f19d1103ed07872cc8a195:src/bst.py
     if a_node == -1:
       return -1 
     if a_node.right_child != None:
