@@ -1,14 +1,17 @@
 '''
 https://developers.google.com/edu/python/exercises/copy-special
 
-Write a program to print absolute path of filesnames 
+Write a program to find filenames with pattern __something__ 
+in an input directiry and copy them into another directory
+if to_dir does not exits, create it
+
+Usage: python copy_special_files from_dir to_dir
 '''
 
-
-import re
-import os
-import sys
-import shutil
+import re   #regular expression
+import os   # listdir, path.abspath
+import sys  # argv
+import shutil  # copy from to
 
 def copy_special_files(from_dir, to_dir):
   for f in os.listdir(from_dir):
@@ -20,10 +23,17 @@ def copy_special_files(from_dir, to_dir):
 
 
 def main():
- from_dir = sys.argv[1]
- to_dir = sys.argv[2]
+ args = sys.argv[1:]
+ if len(args) == 0:
+   print "Must specify two input arguments"
+   sys.exit(1)
+
+ from_dir = args[0]
+ to_dir = args[1]
+
  if not os.path.exists(to_dir):
    os.mkdir(to_dir)
+
  copy_special_files(from_dir, to_dir) 
 
 
